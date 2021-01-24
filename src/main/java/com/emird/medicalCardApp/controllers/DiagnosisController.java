@@ -1,22 +1,31 @@
 package com.emird.medicalCardApp.controllers;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.emird.medicalCardApp.models.Diagnosis;
+import com.emird.medicalCardApp.service.DiagnosisService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/diagnosis")
 public class DiagnosisController {
+	@Autowired
+	private DiagnosisService diagnosisService;
 
 	// Get all diagnosis from one patient
-	@GetMapping
-	public String getDiagnosis() {
-		return "This will return all diagnosis from certain patients.";
+	@GetMapping("/{patientId}")
+	public List<Diagnosis> getAllDiagnosis(@PathVariable long patientId) {
+		return diagnosisService.getAllDiagnosisByPatientId(patientId);
 	}
 
 	// Post new diagnosis for a certain patient
+	@PostMapping
+	public void addNewDiagnosis(@RequestBody Diagnosis diagnosis) {
+		diagnosisService.addNewDiagnosis(diagnosis);
+	}
 
 	// Blocked options for editing and deleting diagnosis
-	// We will filter diagnosis by date for a patient in user interface if necessary
+	// We will filter diagnosis by date for a patient in user interface
 	// Limit need for sending requests for data
 }
