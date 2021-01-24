@@ -1,12 +1,12 @@
 CREATE TABLE patient_info (
-                    patient_id INT NOT NULL AUTO_INCREMENT,
-                    first_name VARCHAR(50) NOT NULL,
-                    last_name VARCHAR(50) NOT NULL,
-                    card_number VARCHAR(255) NOT NULL,
-                    address VARCHAR(255) NOT NULL,
-                    phone_number VARCHAR(255) NOT NULL,
-                    date DATETIME NOT NULL,
-                    PRIMARY KEY (`patient_id`)
+    patient_id INT NOT NULL AUTO_INCREMENT,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    card_number VARCHAR(255) NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    phone_number VARCHAR(255) NOT NULL,
+    date DATETIME NOT NULL,
+    PRIMARY KEY (`patient_id`)
 );
 
 CREATE TABLE diagnosis_info (
