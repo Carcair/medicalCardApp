@@ -49,11 +49,11 @@ class DiagnosisServiceTest {
 		List<Diagnosis> returnedDiagnosis = diagnosisService.getAllDiagnosisByPatientId(1l);
 
 		// Assert response
-		Assertions.assertFalse(
+		assertFalse(
 			returnedDiagnosis.isEmpty(),
 			"Diagnosis was not found"
 		);
-		Assertions.assertEquals(
+		assertEquals(
 			2,
 			returnedDiagnosis.size(),
 			"Find all should return 2 diagnosis"
@@ -70,7 +70,7 @@ class DiagnosisServiceTest {
 		List<Diagnosis> returnedDiagnosis = diagnosisService.getAllDiagnosisByPatientId(1l);
 
 		// Assert Response
-		Assertions.assertTrue(
+		assertTrue(
 			returnedDiagnosis.isEmpty(),
 			"Diagnosis should not be found."
 		);

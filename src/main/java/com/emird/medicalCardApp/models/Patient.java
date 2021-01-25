@@ -22,6 +22,26 @@ public class Patient {
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM-dd-yyyy")
 	private LocalDateTime date;
 
+	// Constructor to use with tests
+	public Patient(Long patientId, String firstName, String lastName, String cardNumber, String address, String phoneNumber, LocalDateTime date) {
+		this.patientId = patientId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.cardNumber = cardNumber;
+		this.address = address;
+		this.phoneNumber = phoneNumber;
+		this.date = date;
+	}
+	// Constructor to use with tests
+	public Patient(Long patientId, String firstName, String lastName, String cardNumber, String address, String phoneNumber) {
+		this.patientId = patientId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.cardNumber = cardNumber;
+		this.address = address;
+		this.phoneNumber = phoneNumber;
+	}
+
 	public Patient() {
 		this.date = LocalDateTime.now();
 	}

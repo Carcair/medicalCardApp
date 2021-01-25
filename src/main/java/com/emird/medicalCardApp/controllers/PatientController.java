@@ -23,7 +23,7 @@ public class PatientController {
 	// Get one patient
 	@GetMapping("/{patientId}")
 	public Patient getOnePatient(@PathVariable long patientId) {
-		return patientService.getOnePatient(patientId);
+		return patientService.getOnePatient(patientId).get();
 	}
 
 	// Post new patient
