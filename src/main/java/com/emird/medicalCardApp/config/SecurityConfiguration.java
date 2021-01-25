@@ -39,7 +39,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable()
-			.authorizeRequests().antMatchers(HttpMethod.POST,"/authenticate").permitAll()
+			.authorizeRequests().antMatchers(HttpMethod.POST,"/api/*/authenticate").permitAll()
+			.antMatchers(HttpMethod.GET, "/v2/api-docs").permitAll()
+			.antMatchers(HttpMethod.GET, "/swagger-ui.html").permitAll()
+			.antMatchers(HttpMethod.GET, "/configuration/ui").permitAll()
+			.antMatchers(HttpMethod.GET, "/swagger-resources/**").permitAll()
+			.antMatchers(HttpMethod.GET, "/webjars/**").permitAll()
 			.anyRequest().authenticated()
 			.and().sessionManagement()
 			.sessionCreationPolicy(SessionCreationPolicy.STATELESS);

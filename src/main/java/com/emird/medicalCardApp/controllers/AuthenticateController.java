@@ -4,6 +4,7 @@ import com.emird.medicalCardApp.models.AuthenticationRequest;
 import com.emird.medicalCardApp.models.AuthenticationResponse;
 import com.emird.medicalCardApp.service.MyUserDetailsService;
 import com.emird.medicalCardApp.util.JwtUtil;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +15,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/authenticate")
+@RequestMapping("/api/v1/authenticate")
 public class AuthenticateController {
 
 	@Autowired
@@ -28,6 +29,10 @@ public class AuthenticateController {
 
 	@PostMapping
 	@ResponseStatus(HttpStatus.OK)
+	@ApiOperation(
+		value = "Authenticate a user and receive jwt token",
+		notes = "Default user (username: 'user', password: 'user')"
+	)
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
 		try {
 			authenticationManager.authenticate(

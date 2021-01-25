@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface DiagnosisRepository extends JpaRepository<Diagnosis, Long> {
 	public List<Diagnosis> findByPatientId(Long patientId);
+	public void deleteByPatientId(Long patientId);
 }

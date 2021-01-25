@@ -1,6 +1,7 @@
 package com.emird.medicalCardApp.service;
 
 import com.emird.medicalCardApp.models.Patient;
+import com.emird.medicalCardApp.repositories.DiagnosisRepository;
 import com.emird.medicalCardApp.repositories.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,8 @@ import java.util.Optional;
 public class PatientService {
 	@Autowired
 	private PatientRepository patientRepository;
+	@Autowired
+	private DiagnosisRepository diagnosisRepository;
 
 	// Get all patients
 	public List<Patient> getAllPatients() {
@@ -36,5 +39,7 @@ public class PatientService {
 	// Delete a patient
 	public void deleteOnePatient(long patientId) {
 		patientRepository.deleteById(patientId);
+		// We also need to make sure that all diagnosis tied to this patient are also deleted
+		diagnosisRepository.deleteByPatientId(patientId);
 	}
 }
