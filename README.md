@@ -18,3 +18,20 @@ List of required tools and technologies:
 - MySQL (Flyway for migrations),
 - Swagger,
 - Unit tests (used jUnit).
+
+## Installation and APP start
+
+Clean and install project:
+```
+mvn clean install
+```
+
+Test project (runs a jUnit5 test, using Surefire plugin):
+```
+mvn test
+```
+
+Run application with:
+```
+mvn exec:java -Dexec.mainClass="com.emird.medicalCardApp.MedicalCardAppApplication"
+```

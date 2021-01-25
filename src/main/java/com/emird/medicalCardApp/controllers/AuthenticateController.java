@@ -26,12 +26,6 @@ public class AuthenticateController {
 	@Autowired
 	private JwtUtil jwtUtil;
 
-
-	@GetMapping
-	public String login() {
-		return "Welcome to the authenticate page.";
-	}
-
 	@PostMapping
 	@ResponseStatus(HttpStatus.OK)
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {

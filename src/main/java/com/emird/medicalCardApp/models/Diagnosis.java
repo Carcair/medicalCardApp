@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
 @Table(name = "diagnosis_info")
@@ -21,6 +20,22 @@ public class Diagnosis {
 
 	public Diagnosis() {
 		this.date = LocalDateTime.now();
+	}
+
+	// User for testing post requests
+
+	public Diagnosis(long patientId, String diagnosis, String medicine) {
+		this.patientId = patientId;
+		this.diagnosis = diagnosis;
+		this.medicine = medicine;
+	}
+
+	// Used for testing get requests
+	public Diagnosis(long patientId, String diagnosis, String medicine, LocalDateTime date) {
+		this.patientId = patientId;
+		this.diagnosis = diagnosis;
+		this.medicine = medicine;
+		this.date = date;
 	}
 
 	public long getDiagnosisId() {
