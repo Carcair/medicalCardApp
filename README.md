@@ -40,3 +40,10 @@ mvn exec:java -Dexec.mainClass="com.emird.medicalCardApp.MedicalCardAppApplicati
 ```
 
 Endpoint and route testing can be done with Postman. API documentation at http://localhost:8080/swagger-ui.html#/
+
+!!! For full project description review Parent repo README file.
+
+## References
+List of parent and sibling repositories:
+- parent repository: https://github.com/Carcair/MedicalCardApp-parent
+- frontend service repository: https://github.com/Carcair/medicalCardApp-UI
