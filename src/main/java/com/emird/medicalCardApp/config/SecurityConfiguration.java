@@ -38,6 +38,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+		/*
+			We are enabling access without authentication
+			for authenticate endpoint
+			and all swagger documentation endpoints
+		*/
 		http.csrf().disable()
 			.authorizeRequests().antMatchers(HttpMethod.POST,"/api/*/authenticate").permitAll()
 			.antMatchers(HttpMethod.GET, "/v2/api-docs").permitAll()
@@ -49,12 +54,17 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.and().sessionManagement()
 			.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
+		/*
+			Before accessing protected routes
+			we are initiating JWT filter as authentication filter
+		 */
 		http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 	}
 
 	@Bean
 	public PasswordEncoder getPasswordEncoder() {
 		// I used no encoder because our flyway migration already inserts some default users, with not encoded passwords
+		// Production application should have some encoder
 		return NoOpPasswordEncoder.getInstance();
 	}
 }

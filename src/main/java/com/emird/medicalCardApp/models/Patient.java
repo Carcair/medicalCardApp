@@ -19,7 +19,7 @@ public class Patient {
 	private String address;
 	private String phoneNumber;
 
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM-dd-yyyy")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
 	private LocalDateTime date;
 
 	// Constructor to use with tests

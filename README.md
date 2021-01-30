@@ -1,4 +1,4 @@
-# Medical Card Application
+# Medical Card Application - Backend Service
 
 ## Project description
 Demo project for interview test, which encapsuletes necessary technologies.
@@ -20,6 +20,9 @@ List of required tools and technologies:
 - Unit tests (used jUnit).
 
 ## Installation and APP start
+Project doesn't have standalone MySQL database. To properly test, create in your 
+MySQL database "medical_card_app", 
+and user (username: "dev", password: "password") with access to it.
 
 Clean and install project:
 ```
@@ -35,3 +38,5 @@ Run application with:
 ```
 mvn exec:java -Dexec.mainClass="com.emird.medicalCardApp.MedicalCardAppApplication"
 ```
+
+Endpoint and route testing can be done with Postman. API documentation at http://localhost:8080/swagger-ui.html#/

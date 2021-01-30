@@ -5,6 +5,7 @@ import springfox.documentation.service.ApiInfo;
 
 import java.util.Collections;
 
+// Swagger html api description configuration
 @Service
 public class SpringfoxUtil {
 	public ApiInfo apiDetails() {

@@ -44,6 +44,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 			jwt = authorizationHeader.substring(7);
 			username = jwtUtil.extractUsername(jwt);
 
+			// Load user creds from base
 			UserDetails userDetails = this.myUserDetailsService.loadUserByUsername(username);
 
 			if (jwtUtil.validateToken(jwt, userDetails)) {

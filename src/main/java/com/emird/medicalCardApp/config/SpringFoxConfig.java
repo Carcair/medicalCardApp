@@ -14,6 +14,7 @@ public class SpringFoxConfig {
 	@Autowired
 	private SpringfoxUtil springfoxUtil;
 
+	// Swagger api documentation configuration
 	@Bean
 	public Docket swaggerConfiguration() {
 		return new Docket(DocumentationType.SWAGGER_2)

@@ -19,7 +19,7 @@ public class MyUserDetailsService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		User user = userRepository.findByUsername(username);
 
-		// I need spring securities User class, didn't have foresight to name it differently
+		// I need spring securities User class, didn't have foresight to name my user class differently
 		return new org.springframework.security.core.userdetails.User(
 			user.getUsername(),
 			user.getPassword(),

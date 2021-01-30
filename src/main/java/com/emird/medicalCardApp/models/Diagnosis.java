@@ -15,7 +15,7 @@ public class Diagnosis {
 	private String diagnosis;
 	private String medicine;
 
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM-dd-yyyy")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
 	private LocalDateTime date;
 
 	public Diagnosis() {

@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/patient")
+@CrossOrigin(origins = "*")
 public class PatientController {
 	@Autowired
 	private PatientService patientService;
@@ -71,8 +72,9 @@ public class PatientController {
 	)
 	public void deleteOnePatient(
 		@ApiParam( value = "patientId value for wanted patient", required = true)
-		@PathVariable long patientId
+		@PathVariable Long patientId
 	) {
+//		long tempId = Long.valueOf(patientId);
 		patientService.deleteOnePatient(patientId);
 	}
 }

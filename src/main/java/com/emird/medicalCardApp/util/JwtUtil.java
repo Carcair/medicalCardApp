@@ -22,6 +22,7 @@ public class JwtUtil {
 		return createToken(claims, userDetails.getUsername());
 	}
 
+	// Build token
 	private String createToken(Map<String, Object> claims, String username) {
 		return Jwts.builder()
 			.setClaims(claims)
@@ -63,6 +64,7 @@ public class JwtUtil {
 			!isTokenExpired(token)
 		);
 	}
+
 	// Checking if token is expired
 	private boolean isTokenExpired(String token) {
 		return extractDate(token).before(new Date());
